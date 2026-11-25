@@ -25,6 +25,68 @@
 
         <p>Current Farmer: {{ farmerName }}</p>
 
+
+        <h2>Two-Way Data Binding</h2>
+
+        <label>Enter Farmer Name:</label>
+
+        <input
+            type="text"
+            ng-model="farmerName"
+            placeholder="Enter your name"
+        >
+
+        <p>Hello, {{ farmerName }}!</p>
+
+                <h2>Farmer List</h2>
+
+        <div class="farmer-list">
+
+            <div class="farmer-card" ng-repeat="farmer in farmers">
+
+                <h3>{{ farmer.name }}</h3>
+
+                <p>Village: {{ farmer.village }}</p>
+
+                <p>Crop: {{ farmer.crop }}</p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ng-if Demonstration -->
+
+        <h2>ng-if Demonstration</h2>
+
+        <p ng-if="farmerName">
+            A farmer name has been entered: {{ farmerName }}
+        </p>
+
+        <p ng-if="!farmerName">
+            Please enter a farmer name.
+        </p>
+
+
+        <!-- ng-show Demonstration -->
+
+        <h2>ng-show Demonstration</h2>
+
+        <label>
+            <input
+                type="checkbox"
+                ng-model="showFarmerDetails"
+            >
+            Show Farmer Details
+        </label>
+
+        <div ng-show="showFarmerDetails">
+
+            <p>Farmer details are currently visible.</p>
+
+        </div>
+
     </div>
 
 </body>

@@ -9,6 +9,8 @@ app.controller("FarmerController", function($scope) {
 
     $scope.farmerName = "Urvee";
 
+    $scope.showFarmerDetails = true;
+
     $scope.farmers = [
         {
             name: "Ramesh",
