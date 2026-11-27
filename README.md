@@ -115,16 +115,3 @@ AngularJSDev/
 ## Objective
 
 To develop practical proficiency in AngularJS and strengthen frontend development fundamentals through structured, hands-on assignments.
-```
-
-**All three assignments are now documented as completed.** Replace your existing root `README.md` with this version.
-
-Next, commit and push the final changes:
-
-```bash
-git add .
-git commit -m "Complete all AngularJS assignments"
-git push origin main
-```
-
-This will publish your completed assignments and updated documentation to GitHub.
