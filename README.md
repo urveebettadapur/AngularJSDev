@@ -1,4 +1,3 @@
-
 # AngularJSDev
 
 A collection of practical AngularJS assignments focused on developing core frontend development skills through hands-on implementation.
@@ -42,16 +41,21 @@ Implementation of a Farmer Registration Form with input handling, validation and
 - Form Reset using AngularJS Form Methods
 
 ### Assignment 3 – REST API Integration
-**Status:** Upcoming
+**Status:** Completed
 
-Integration of REST APIs using AngularJS to retrieve and submit data.
+Integration of REST APIs using AngularJS and JSONPlaceholder to retrieve user records and submit new posts.
 
-**Concepts to be covered:**
+**Concepts covered:**
 - `$http` Service
 - GET and POST Requests
+- REST API Integration
 - JSON Data Handling
+- Displaying API Response Data
+- Promise Handling using `.then()`, `.catch()` and `.finally()`
 - Loading States
 - Error Handling
+- Form Submission and Validation
+- Conditional Rendering using `ng-if`
 
 ## Technologies Used
 
@@ -59,7 +63,7 @@ Integration of REST APIs using AngularJS to retrieve and submit data.
 - CSS3
 - JavaScript
 - AngularJS 1.8.2
-- REST APIs
+- JSONPlaceholder REST API
 - Git and GitHub
 
 ## Repository Structure
@@ -106,8 +110,21 @@ AngularJSDev/
 
 4. Follow the instructions in the respective assignment's README.
 
-**Note:** An internet connection is required to load AngularJS through the CDN.
+**Note:** An internet connection is required to load AngularJS through the CDN and access the JSONPlaceholder API.
 
 ## Objective
 
 To develop practical proficiency in AngularJS and strengthen frontend development fundamentals through structured, hands-on assignments.
+```
+
+**All three assignments are now documented as completed.** Replace your existing root `README.md` with this version.
+
+Next, commit and push the final changes:
+
+```bash
+git add .
+git commit -m "Complete all AngularJS assignments"
+git push origin main
+```
+
+This will publish your completed assignments and updated documentation to GitHub.

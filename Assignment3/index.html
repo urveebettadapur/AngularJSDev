@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="apiApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AngularJS REST API Integration</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <div class="container" ng-controller="ApiController">
+
+        <h1>REST API Integration</h1>
+
+        <p class="description">
+            Fetch user records and submit posts using AngularJS and JSONPlaceholder.
+        </p>
+
+        <!-- GET Request: Display Users -->
+        <section class="section">
+
+            <h2>Fetch User Records</h2>
+
+            <button type="button" ng-click="loadUsers()" ng-disabled="loadingUsers">
+                Refresh Users
+            </button>
+
+            <!-- Loading Message -->
+            <p class="loading" ng-if="loadingUsers">
+                Loading user records...
+            </p>
+
+            <!-- Error Message -->
+            <p class="error" ng-if="userError">
+                {{ userError }}
+            </p>
+
+            <!-- User Records -->
+            <div class="user-list" ng-if="!loadingUsers && !userError">
+
+                <div class="user-card" ng-repeat="user in users">
+
+                    <h3>{{ user.name }}</h3>
+
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+
+                    <p><strong>Username:</strong> {{ user.username }}</p>
+
+                    <p><strong>City:</strong> {{ user.address.city }}</p>
+
+                </div>
+
+                <p ng-if="users.length === 0">
+                    No user records found.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- POST Request: Create a Post -->
+        <section class="section">
+
+            <h2>Create a New Post</h2>
+
+            <form name="postForm" ng-submit="submitPost(postForm)" novalidate>
+
+                <div class="form-group">
+
+                    <label for="title">Post Title:</label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        ng-model="newPost.title"
+                        placeholder="Enter post title"
+                        required
+                    >
+
+                    <p class="error"
+                       ng-if="(postForm.title.$touched || postForm.$submitted) && postForm.title.$error.required">
+                        Post title is required.
+                    </p>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="body">Post Description:</label>
+
+                    <textarea
+                        id="body"
+                        name="body"
+                        ng-model="newPost.body"
+                        placeholder="Enter post description"
+                        required
+                    ></textarea>
+
+                    <p class="error"
+                       ng-if="(postForm.body.$touched || postForm.$submitted) && postForm.body.$error.required">
+                        Post description is required.
+                    </p>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="userId">User ID:</label>
+
+                    <input
+                        type="number"
+                        id="userId"
+                        name="userId"
+                        ng-model="newPost.userId"
+                        min="1"
+                        step="1"
+                        required
+                    >
+
+                    <p class="error"
+                       ng-if="(postForm.userId.$touched || postForm.$submitted) && postForm.userId.$invalid">
+                        Enter a valid User ID.
+                    </p>
+
+                </div>
+
+                <button type="submit" ng-disabled="submittingPost">
+                    {{ submittingPost ? 'Submitting...' : 'Submit Post' }}
+                </button>
+
+            </form>
+
+            <!-- POST Loading Message -->
+            <p class="loading" ng-if="submittingPost">
+                Submitting your post...
+            </p>
+
+            <!-- POST Error Message -->
+            <p class="error" ng-if="postError">
+                {{ postError }}
+            </p>
+
+            <!-- POST Success Response -->
+            <div class="success-section" ng-if="postSuccess">
+
+                <h3>Post Submitted Successfully!</h3>
+
+                <p><strong>Post ID:</strong> {{ postSuccess.id }}</p>
+
+                <p><strong>User ID:</strong> {{ postSuccess.userId }}</p>
+
+                <p><strong>Title:</strong> {{ postSuccess.title }}</p>
+
+                <p><strong>Description:</strong> {{ postSuccess.body }}</p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+</html>

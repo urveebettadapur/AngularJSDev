@@ -1,4 +1,3 @@
-
 var app = angular.module("farmerRegistrationApp", []);
 
 app.controller("RegistrationController", function($scope) {

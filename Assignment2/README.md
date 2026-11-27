@@ -1,4 +1,3 @@
-
 # Assignment 2 – Farmer Registration Form
 
 ## Overview
