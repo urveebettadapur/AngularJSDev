@@ -1,3 +1,4 @@
+
 # AngularJSDev
 
 A collection of practical AngularJS assignments focused on developing core frontend development skills through hands-on implementation.
@@ -24,16 +25,21 @@ Demonstrates the fundamental concepts of AngularJS through a Farmer Management D
 - `ng-show`
 
 ### Assignment 2 – Farmer Registration Form
-**Status:** Upcoming
+**Status:** Completed
 
-Implementation of a Farmer Registration Form with input handling and validation.
+Implementation of a Farmer Registration Form with input handling, validation and registration confirmation.
 
-**Concepts to be covered:**
+**Concepts covered:**
 - AngularJS Forms
 - `ng-model`
 - Required Field Validation
-- Mobile Number Validation
+- Mobile Number Validation using `ng-pattern`
 - Validation Error Messages
+- Form Submission using `ng-submit`
+- Form Validation States
+- Conditional Rendering using `ng-if`
+- Displaying Registered Farmer Details
+- Form Reset using AngularJS Form Methods
 
 ### Assignment 3 – REST API Integration
 **Status:** Upcoming

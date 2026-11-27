@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="farmerRegistrationApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farmer Registration Form</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <div class="container" ng-controller="RegistrationController">
+
+        <h1>Farmer Registration</h1>
+
+        <p class="description">
+            Register a new farmer by providing the required details.
+        </p>
+
+        <form name="farmerForm" ng-submit="submitForm(farmerForm)" novalidate>
+
+            <!-- Farmer Name -->
+            <div class="form-group">
+                <label for="farmerName">Farmer Name:</label>
+
+                <input
+                    type="text"
+                    id="farmerName"
+                    name="farmerName"
+                    ng-model="farmer.name"
+                    placeholder="Enter farmer name"
+                    required
+                >
+
+                <p class="error"
+                   ng-if="(farmerForm.farmerName.$touched || farmerForm.$submitted) && farmerForm.farmerName.$error.required">
+                    Farmer name is required.
+                </p>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+
+                <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    ng-model="farmer.mobile"
+                    placeholder="Enter 10-digit mobile number"
+                    ng-pattern="/^[6-9][0-9]{9}$/"
+                    required
+                >
+
+                <p class="error"
+                   ng-if="(farmerForm.mobile.$touched || farmerForm.$submitted) && farmerForm.mobile.$error.required">
+                    Mobile number is required.
+                </p>
+
+                <p class="error"
+                   ng-if="(farmerForm.mobile.$touched || farmerForm.$submitted) && farmerForm.mobile.$error.pattern">
+                    Enter a valid 10-digit mobile number starting with 6, 7, 8 or 9.
+                </p>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address:</label>
+
+                <textarea
+                    id="address"
+                    name="address"
+                    ng-model="farmer.address"
+                    placeholder="Enter complete address"
+                    required
+                ></textarea>
+
+                <p class="error"
+                   ng-if="(farmerForm.address.$touched || farmerForm.$submitted) && farmerForm.address.$error.required">
+                    Address is required.
+                </p>
+            </div>
+
+            <!-- Village -->
+            <div class="form-group">
+                <label for="village">Village:</label>
+
+                <input
+                    type="text"
+                    id="village"
+                    name="village"
+                    ng-model="farmer.village"
+                    placeholder="Enter village name"
+                    required
+                >
+
+                <p class="error"
+                   ng-if="(farmerForm.village.$touched || farmerForm.$submitted) && farmerForm.village.$error.required">
+                    Village name is required.
+                </p>
+            </div>
+
+            <!-- Crop -->
+            <div class="form-group">
+                <label for="crop">Crop:</label>
+
+                <input
+                    type="text"
+                    id="crop"
+                    name="crop"
+                    ng-model="farmer.crop"
+                    placeholder="Enter crop name"
+                    required
+                >
+
+                <p class="error"
+                   ng-if="(farmerForm.crop.$touched || farmerForm.$submitted) && farmerForm.crop.$error.required">
+                    Crop name is required.
+                </p>
+            </div>
+
+            <button type="submit">Register Farmer</button>
+
+        </form>
+
+        <!-- Registration Success -->
+        <div class="success-section" ng-if="registeredFarmer">
+
+            <h2>Farmer Registered Successfully!</h2>
+
+            <h3>Registered Farmer Details</h3>
+
+            <p><strong>Name:</strong> {{ registeredFarmer.name }}</p>
+            <p><strong>Mobile Number:</strong> {{ registeredFarmer.mobile }}</p>
+            <p><strong>Address:</strong> {{ registeredFarmer.address }}</p>
+            <p><strong>Village:</strong> {{ registeredFarmer.village }}</p>
+            <p><strong>Crop:</strong> {{ registeredFarmer.crop }}</p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
